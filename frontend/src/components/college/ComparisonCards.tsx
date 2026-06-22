@@ -33,8 +33,8 @@ const METRICS: Metric[] = [
   },
   {
     label: "Established",
-    getValue: (c) => String(c.establishedYear),
-    getNumeric: (c) => c.establishedYear,
+    getValue: (c) => (c.establishedYear ? String(c.establishedYear) : "—"),
+    getNumeric: (c) => c.establishedYear ?? null,
     higherIsBetter: false,
   },
   {
