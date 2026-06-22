@@ -1,0 +1,190 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String
+  role      Role     @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  reviews      Review[]
+  savedColleges SavedCollege[]
+  comparisons  Comparison[]
+  questions    Question[]
+  answers      Answer[]
+
+  @@index([email])
+  @@map("users")
+}
+
+model College {
+  id              String   @id @default(uuid())
+  name            String
+  slug            String   @unique
+  location        String
+  state           String
+  fees                Int
+  pgFees              Int?
+  rating              Float    @default(0)
+  academicScore       Float?
+  accommodationScore  Float?
+  facultyScore        Float?
+  infrastructureScore Float?
+  placementScore      Float?
+  socialLifeScore     Float?
+  overview            String   @db.Text
+  establishedYear     Int?
+  createdAt       DateTime @default(now())
+
+  courses            Course[]
+  placement          Placement?
+  reviews            Review[]
+  savedByUsers       SavedCollege[]
+  comparisonColleges ComparisonCollege[]
+  questions          Question[]
+
+  @@index([state])
+  @@index([location])
+  @@index([fees])
+  @@index([rating])
+  @@index([name])
+  @@index([state, fees])
+  @@index([state, rating])
+  @@map("colleges")
+}
+
+model Course {
+  id       String @id @default(uuid())
+  collegeId String
+  name     String
+  duration String
+  fees     Int
+
+  college College @relation(fields: [collegeId], references: [id], onDelete: Cascade)
+
+  @@index([collegeId])
+  @@index([name])
+  @@map("courses")
+}
+
+model Placement {
+  id                  String @id @default(uuid())
+  collegeId           String @unique
+  averagePackage      Float
+  highestPackage      Float
+  placementPercentage Float
+
+  college College @relation(fields: [collegeId], references: [id], onDelete: Cascade)
+
+  @@index([averagePackage])
+  @@map("placements")
+}
+
+model Review {
+  id        String   @id @default(uuid())
+  userId    String
+  collegeId String
+  rating    Int
+  comment   String   @db.Text
+  createdAt DateTime @default(now())
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  college College @relation(fields: [collegeId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, collegeId])
+  @@index([collegeId])
+  @@index([rating])
+  @@map("reviews")
+}
+
+model SavedCollege {
+  id        String @id @default(uuid())
+  userId    String
+  collegeId String
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  college College @relation(fields: [collegeId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, collegeId])
+  @@index([userId])
+  @@map("saved_colleges")
+}
+
+model Comparison {
+  id        String   @id @default(uuid())
+  userId    String
+  name      String
+  createdAt DateTime @default(now())
+
+  user     User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  colleges ComparisonCollege[]
+
+  @@index([userId])
+  @@index([createdAt])
+  @@map("comparisons")
+}
+
+model ComparisonCollege {
+  id           String @id @default(uuid())
+  comparisonId String
+  collegeId    String
+  position     Int    @default(0)
+
+  comparison Comparison @relation(fields: [comparisonId], references: [id], onDelete: Cascade)
+  college    College    @relation(fields: [collegeId], references: [id], onDelete: Cascade)
+
+  @@unique([comparisonId, collegeId])
+  @@index([comparisonId])
+  @@map("comparison_colleges")
+}
+
+model Question {
+  id        String   @id @default(uuid())
+  userId    String
+  collegeId String
+  title     String
+  content   String   @db.Text
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user    User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  college College  @relation(fields: [collegeId], references: [id], onDelete: Cascade)
+  answers Answer[]
+
+  @@index([collegeId])
+  @@index([userId])
+  @@index([createdAt])
+  @@index([title])
+  @@map("questions")
+}
+
+model Answer {
+  id         String   @id @default(uuid())
+  questionId String
+  userId     String
+  content    String   @db.Text
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([questionId])
+  @@index([userId])
+  @@index([createdAt])
+  @@map("answers")
+}

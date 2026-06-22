@@ -1,0 +1,11 @@
+import { registerAs } from '@nestjs/config';
+
+export default registerAs('app', () => ({
+  port: parseInt(process.env.PORT ?? '3000', 10),
+  nodeEnv: process.env.NODE_ENV ?? 'development',
+  corsOrigin: process.env.CORS_ORIGIN ?? '*',
+  jwtSecret: process.env.JWT_SECRET ?? 'change-me',
+  jwtExpiresIn: process.env.JWT_EXPIRES_IN ?? '7d',
+  throttleTtl: parseInt(process.env.THROTTLE_TTL ?? '60000', 10),
+  throttleLimit: parseInt(process.env.THROTTLE_LIMIT ?? '100', 10),
+}));

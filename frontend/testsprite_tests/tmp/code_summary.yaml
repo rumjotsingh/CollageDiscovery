@@ -1,0 +1,211 @@
+version: "2"
+type: frontend
+tech_stack:
+  - TypeScript
+  - Next.js 16 (App Router)
+  - React 19
+  - Tailwind CSS 4
+  - TanStack React Query
+  - Framer Motion
+  - shadcn/ui
+routes:
+  - path: /
+    file: src/app/page.tsx
+    auth_required: false
+    description: Public landing page with hero, features, and navigation
+  - path: /welcome
+    file: src/app/welcome/page.tsx
+    auth_required: false
+    description: Authenticated welcome dashboard with quick actions
+  - path: /explore
+    file: src/app/explore/page.tsx
+    auth_required: false
+    description: Explore colleges with filters in app shell layout
+  - path: /colleges
+    file: src/app/colleges/page.tsx
+    auth_required: false
+    description: Colleges listing with search, filters, and infinite scroll
+  - path: /colleges/[slug]
+    file: src/app/colleges/[slug]/page.tsx
+    auth_required: false
+    description: College detail page with reviews and discussions
+  - path: /compare
+    file: src/app/compare/page.tsx
+    auth_required: false
+    description: Compare up to 4 colleges side-by-side; save requires login
+  - path: /saved
+    file: src/app/saved/page.tsx
+    auth_required: true
+    description: User's saved/shortlisted colleges
+  - path: /dashboard
+    file: src/app/dashboard/page.tsx
+    auth_required: false
+    description: Overview dashboard with stats and quick links
+  - path: /profile
+    file: src/app/profile/page.tsx
+    auth_required: true
+    description: User profile page
+  - path: /courses
+    file: src/app/courses/page.tsx
+    auth_required: false
+    description: Courses listing fetched from backend API
+  - path: /exams
+    file: src/app/exams/page.tsx
+    auth_required: false
+    description: Static entrance exams listing (local data)
+  - path: /exams/[slug]
+    file: src/app/exams/[slug]/page.tsx
+    auth_required: false
+    description: Static exam detail page (local data)
+  - path: /careers
+    file: src/app/careers/page.tsx
+    auth_required: false
+    description: Static career paths listing (local data)
+  - path: /careers/[slug]
+    file: src/app/careers/[slug]/page.tsx
+    auth_required: false
+    description: Static career detail page (local data)
+features:
+  - name: User Authentication
+    description: Login and register via modal; demo login available in header
+    files:
+      - src/components/auth/LoginModal.tsx
+      - src/lib/api/auth.ts
+      - src/providers/AuthProvider.tsx
+      - src/hooks/useDemoLogin.ts
+    entry_route: /
+    user_interactions:
+      - Click Sign In or Login button in header
+      - Switch between Login and Register tabs in modal
+      - Fill email and password fields
+      - Click Login or Create Account to submit
+      - Click Try Demo Account for one-click demo login
+      - See error message on invalid credentials
+    api_calls:
+      - method: POST
+        endpoint: /auth/login
+      - method: POST
+        endpoint: /auth/register
+      - method: GET
+        endpoint: /auth/profile
+    auth_required: false
+  - name: Browse Colleges
+    description: Search and filter engineering colleges with pagination
+    files:
+      - src/features/colleges/CollegesListingPage.tsx
+      - src/components/college/CollegesTable.tsx
+      - src/hooks/useColleges.ts
+      - src/lib/api/colleges.ts
+    entry_route: /colleges
+    user_interactions:
+      - Type in search bar to filter colleges
+      - Click state, fees, or rating filter chips
+      - Scroll to load more colleges
+      - Click a college row to open detail page
+      - Click bookmark icon to save college (prompts login if unauthenticated)
+    api_calls:
+      - method: GET
+        endpoint: /colleges
+    auth_required: false
+  - name: College Detail
+    description: View college info, placement stats, reviews, and Q&A
+    files:
+      - src/features/college-detail/CollegeDetailPage.tsx
+      - src/hooks/useReviews.ts
+      - src/hooks/useDiscussions.ts
+    entry_route: /colleges/[slug]
+    user_interactions:
+      - View college name, location, fees, and rating
+      - Read existing reviews and discussion questions
+      - Submit a review with rating and comment (login required)
+      - Ask a question about the college (login required)
+    api_calls:
+      - method: GET
+        endpoint: /colleges/by-slug/{slug}
+      - method: GET
+        endpoint: /reviews/{collegeId}
+      - method: POST
+        endpoint: /reviews
+      - method: GET
+        endpoint: /discussions
+      - method: POST
+        endpoint: /discussions/questions
+    auth_required: false
+  - name: Compare Colleges
+    description: Select colleges and compare fees, ratings, and placement side-by-side
+    files:
+      - src/features/compare/ComparePage.tsx
+      - src/hooks/useCompare.ts
+      - src/lib/api/compare.ts
+    entry_route: /compare
+    user_interactions:
+      - Search for colleges to add to comparison
+      - Click college cards to add up to 4 colleges
+      - View comparison table with metrics
+      - Remove colleges from comparison
+      - Enter name and save comparison (login required)
+      - View and delete saved comparisons (login required)
+    api_calls:
+      - method: GET
+        endpoint: /colleges
+      - method: POST
+        endpoint: /compare
+      - method: GET
+        endpoint: /comparisons
+      - method: DELETE
+        endpoint: /comparisons/{id}
+    auth_required: false
+  - name: Saved Colleges
+    description: View and manage shortlisted colleges
+    files:
+      - src/features/saved/SavedPage.tsx
+      - src/hooks/useSaved.ts
+      - src/lib/api/saved.ts
+    entry_route: /saved
+    user_interactions:
+      - View list of saved colleges when logged in
+      - See login prompt when not authenticated
+      - Remove college from saved list
+      - Navigate to college detail from saved card
+    api_calls:
+      - method: GET
+        endpoint: /saved
+      - method: POST
+        endpoint: /saved/{collegeId}
+      - method: DELETE
+        endpoint: /saved/{collegeId}
+    auth_required: true
+  - name: Courses Listing
+    description: Browse courses across colleges from backend API
+    files:
+      - src/features/courses/CoursesListingPage.tsx
+      - src/lib/api/courses.ts
+    entry_route: /courses
+    user_interactions:
+      - View paginated list of courses
+      - Search courses by name
+      - Click course to see linked college
+    api_calls:
+      - method: GET
+        endpoint: /courses
+    auth_required: false
+  - name: Static Content Pages
+    description: Exams and careers pages use local static data, not backend API
+    files:
+      - src/features/exams/ExamsListingPage.tsx
+      - src/features/careers/CareersListingPage.tsx
+      - src/lib/data/exams.ts
+      - src/lib/data/careers.ts
+    entry_route: /exams
+    user_interactions:
+      - Browse exam or career cards
+      - Click card to view detail page
+    api_calls: []
+    auth_required: false
+known_limitations:
+  - issue: Exams and careers pages use static local data, not connected to backend API
+    location: src/lib/data/exams.ts, src/lib/data/careers.ts
+    impact: Content is hardcoded and cannot be updated via API
+  - issue: Backend API runs on port 3000; frontend dev server on port 3001
+    location: src/lib/api/client.ts
+    impact: Frontend requires backend running at NEXT_PUBLIC_API_URL for live data features

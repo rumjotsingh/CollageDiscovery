@@ -1,0 +1,1292 @@
+[
+  {
+    "id": "TC001",
+    "title": "Browse colleges with search and filters",
+    "description": "A guest can search and filter engineering colleges and see matching results update on the discovery page.",
+    "category": "Colleges Discovery",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /colleges"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the college search field with engineering"
+      },
+      {
+        "type": "action",
+        "description": "Select a state filter"
+      },
+      {
+        "type": "action",
+        "description": "Select a fees filter"
+      },
+      {
+        "type": "action",
+        "description": "Select a rating filter"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify matching college results are displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC002",
+    "title": "Search and filter colleges before opening a detail page",
+    "description": "A guest user can search, filter, and open a college detail page, then view the college overview.",
+    "category": "Browse Colleges",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /colleges"
+      },
+      {
+        "type": "action",
+        "description": "Type a college name or keyword into the search field"
+      },
+      {
+        "type": "action",
+        "description": "Apply a state, fees, or rating filter"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to load more colleges"
+      },
+      {
+        "type": "action",
+        "description": "Open a college from the results"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the college detail page is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the college overview information is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC003",
+    "title": "Open a college detail page from discovery",
+    "description": "A guest can open a college from the listing and view the college detail page.",
+    "category": "Colleges Discovery",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /colleges"
+      },
+      {
+        "type": "action",
+        "description": "Open a college from the results list"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the college detail page is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the college overview content is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC004",
+    "title": "View college details with overview and supporting sections",
+    "description": "A user can open a college detail page and switch between overview, courses, placements, reviews, and Q&A content.",
+    "category": "College Detail",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /colleges"
+      },
+      {
+        "type": "action",
+        "description": "Open a college from the results"
+      },
+      {
+        "type": "action",
+        "description": "Switch to the courses section"
+      },
+      {
+        "type": "action",
+        "description": "Switch to the placements section"
+      },
+      {
+        "type": "action",
+        "description": "Switch to the reviews section"
+      },
+      {
+        "type": "action",
+        "description": "Switch to the Q&A section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the college sections are displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify reviews and discussion content are displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC005",
+    "title": "Load more colleges while scrolling",
+    "description": "A guest can continue browsing colleges as more results load when reaching the end of the list.",
+    "category": "Colleges Discovery",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /colleges"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the bottom of the results list"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify additional college results are displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC006",
+    "title": "View college detail sections",
+    "description": "A guest can read the main college detail sections that support evaluation before deciding to save or compare.",
+    "category": "Colleges Discovery",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /colleges"
+      },
+      {
+        "type": "action",
+        "description": "Open a college from the results list"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the college courses section is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the placements section is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the reviews and questions sections are displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC007",
+    "title": "Refine college results with rating and fee filters",
+    "description": "A user can narrow the college list using quick filters and see the updated results list.",
+    "category": "Browse Colleges",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /colleges"
+      },
+      {
+        "type": "action",
+        "description": "Apply a quick rating filter"
+      },
+      {
+        "type": "action",
+        "description": "Apply a quick fee filter"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the college results list is updated"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify filtered colleges are displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC008",
+    "title": "Prompt sign in for gated college actions",
+    "description": "A guest trying to save or contribute from a college detail page is prompted to sign in before continuing.",
+    "category": "Colleges Discovery",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /colleges"
+      },
+      {
+        "type": "action",
+        "description": "Open a college from the results list"
+      },
+      {
+        "type": "action",
+        "description": "Click the save action for the college"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a sign-in prompt is displayed"
+      },
+      {
+        "type": "action",
+        "description": "Click the review or question action"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the authentication modal is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC009",
+    "title": "Log in from the authentication modal",
+    "description": "A user can sign in through the modal and reach the authenticated experience.",
+    "category": "User Authentication",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Open the sign-in flow from the header"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the sign-in form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the authenticated experience is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC010",
+    "title": "Add colleges to a comparison and review them side by side",
+    "description": "A user can add multiple colleges to compare and view their fees, ratings, and placement information together.",
+    "category": "Compare Colleges",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /compare"
+      },
+      {
+        "type": "action",
+        "description": "Search for a college to add to comparison"
+      },
+      {
+        "type": "action",
+        "description": "Add a second college to comparison"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the comparison table is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify multiple colleges are shown in the side-by-side comparison"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC011",
+    "title": "Compare multiple colleges side by side",
+    "description": "A user can build a comparison of 2 to 4 colleges and review them together on the compare page.",
+    "category": "Compare Colleges",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /colleges"
+      },
+      {
+        "type": "action",
+        "description": "Open the compare action for the first college"
+      },
+      {
+        "type": "action",
+        "description": "Open the compare action for the second college"
+      },
+      {
+        "type": "action",
+        "description": "Open the compare action for the third college"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /compare"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the selected colleges are displayed in side-by-side comparison"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC012",
+    "title": "View the saved shortlist",
+    "description": "A signed-in user can open the saved list and see saved colleges displayed.",
+    "category": "Saved Colleges",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the sign-in form"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /saved"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the saved colleges list is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC013",
+    "title": "Post a review on a college detail page",
+    "description": "An authenticated user can submit a review and see it appear in the reviews thread.",
+    "category": "College Reviews and Questions",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the sign-in form"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /colleges"
+      },
+      {
+        "type": "action",
+        "description": "Open a college from the results list"
+      },
+      {
+        "type": "action",
+        "description": "Submit a review with a rating and comment"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the new review is displayed in the reviews thread"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC014",
+    "title": "Submit a review on a college detail page",
+    "description": "A signed-in user can post a review with a rating and comment and see it appear in the reviews thread.",
+    "category": "College Detail",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the login credentials with {{LOGIN_USER}} and {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /colleges"
+      },
+      {
+        "type": "action",
+        "description": "Open a college from the results"
+      },
+      {
+        "type": "action",
+        "description": "Switch to the reviews section"
+      },
+      {
+        "type": "action",
+        "description": "Enter a rating and comment for a new review"
+      },
+      {
+        "type": "action",
+        "description": "Submit the review"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the new review appears in the reviews thread"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC015",
+    "title": "Remove a college from saved and see the list update",
+    "description": "A signed-in user can remove a college from the shortlist and see it disappear from the saved list.",
+    "category": "Saved Colleges",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the sign-in form"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /saved"
+      },
+      {
+        "type": "action",
+        "description": "Remove a college from the saved list"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the removed college is no longer displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC016",
+    "title": "Use the demo account to enter the app",
+    "description": "A user can use the demo account option to access the authenticated experience immediately.",
+    "category": "User Authentication",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Open the sign-in flow from the header"
+      },
+      {
+        "type": "action",
+        "description": "Choose the demo account option"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the authenticated experience is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC017",
+    "title": "Load more college results while browsing",
+    "description": "A user can scroll through the college listing and load additional colleges without leaving the page.",
+    "category": "Browse Colleges",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /colleges"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the bottom of the results"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify more college results are displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the listing remains on the colleges page"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC018",
+    "title": "Save a comparison after signing in",
+    "description": "A signed-in user can save a college comparison for later review.",
+    "category": "Compare Colleges",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the sign-in form"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /compare"
+      },
+      {
+        "type": "action",
+        "description": "Save the current comparison"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a saved comparison confirmation is visible"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC019",
+    "title": "Build a full comparison set up to four colleges",
+    "description": "A user can add up to four colleges to the comparison set and see all selected colleges in the table.",
+    "category": "Compare Colleges",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /compare"
+      },
+      {
+        "type": "action",
+        "description": "Search for and add a first college to comparison"
+      },
+      {
+        "type": "action",
+        "description": "Search for and add a second college to comparison"
+      },
+      {
+        "type": "action",
+        "description": "Search for and add a third college to comparison"
+      },
+      {
+        "type": "action",
+        "description": "Search for and add a fourth college to comparison"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify four colleges are shown in the comparison table"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify comparison metrics are displayed for each selected college"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC020",
+    "title": "Post a question on a college detail page",
+    "description": "An authenticated user can submit a question and see it appear in the discussion thread.",
+    "category": "College Reviews and Questions",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the sign-in form"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /colleges"
+      },
+      {
+        "type": "action",
+        "description": "Open a college from the results list"
+      },
+      {
+        "type": "action",
+        "description": "Submit a question"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the new question is displayed in the discussion thread"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC021",
+    "title": "Open a saved college from the shortlist",
+    "description": "A signed-in user can open a saved college from the shortlist and view its detail page.",
+    "category": "Saved Colleges",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the sign-in form"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /saved"
+      },
+      {
+        "type": "action",
+        "description": "Open a saved college"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the college detail page is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC022",
+    "title": "Remove a college from comparison",
+    "description": "A user can remove one college from the compare set and see the comparison update.",
+    "category": "Compare Colleges",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /colleges"
+      },
+      {
+        "type": "action",
+        "description": "Open the compare action for the first college"
+      },
+      {
+        "type": "action",
+        "description": "Open the compare action for the second college"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /compare"
+      },
+      {
+        "type": "action",
+        "description": "Remove one college from the comparison"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the removed college is no longer displayed in the comparison"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC023",
+    "title": "Delete a saved comparison",
+    "description": "A signed-in user can delete a previously saved comparison from the compare page.",
+    "category": "Compare Colleges",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the sign-in form"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /compare"
+      },
+      {
+        "type": "action",
+        "description": "Delete a saved comparison"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the saved comparison is no longer displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC024",
+    "title": "Switch between sign-in and registration views",
+    "description": "A user can switch between sign-in and registration options in the authentication modal.",
+    "category": "User Authentication",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Open the sign-in flow from the header"
+      },
+      {
+        "type": "action",
+        "description": "Switch to the registration view"
+      },
+      {
+        "type": "action",
+        "description": "Switch back to the sign-in view"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify both authentication views are available"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC025",
+    "title": "Delete a saved comparison after signing in",
+    "description": "A signed-in user can remove a previously saved comparison from their saved comparisons.",
+    "category": "Compare Colleges",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the login credentials with {{LOGIN_USER}} and {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /compare"
+      },
+      {
+        "type": "action",
+        "description": "Search for and add two colleges to comparison"
+      },
+      {
+        "type": "action",
+        "description": "Save the current comparison"
+      },
+      {
+        "type": "action",
+        "description": "Delete the saved comparison"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the saved comparison is removed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify no deleted comparison remains in the saved comparisons area"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC026",
+    "title": "Browse and search courses",
+    "description": "A guest can search the courses listing and find matching course entries.",
+    "category": "Courses Listing",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /courses"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the course search field with engineering"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify matching course results are displayed"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC027",
+    "title": "Browse careers and open a career detail page",
+    "description": "This verifies that a guest user can browse the static careers catalog and open a detailed career page successfully.",
+    "category": "Static Careers Content",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /careers"
+      },
+      {
+        "type": "action",
+        "description": "Click the link for a career card"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the career detail page is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify career content is displayed"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC028",
+    "title": "Open course information and navigate to related college discovery",
+    "description": "A user can browse courses, open a course-related college view, and continue into college discovery content.",
+    "category": "Browse Courses",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /courses"
+      },
+      {
+        "type": "action",
+        "description": "Open a course item"
+      },
+      {
+        "type": "action",
+        "description": "Open the related college information"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the related college information is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a college discovery page or college detail page is displayed"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC029",
+    "title": "Browse exams and open an exam detail page",
+    "description": "This verifies that a guest user can browse the static exams catalog and open a detailed exam page successfully.",
+    "category": "Static Exams Content",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /exams"
+      },
+      {
+        "type": "action",
+        "description": "Click the link for an exam card"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the exam detail page is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify exam content is displayed"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC030",
+    "title": "Open linked college information from a course",
+    "description": "A guest can open a course entry and view the linked college information from that course.",
+    "category": "Courses Listing",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /courses"
+      },
+      {
+        "type": "action",
+        "description": "Open a course entry"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the linked college information is displayed"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC031",
+    "title": "View a career detail page from the careers catalog",
+    "description": "This verifies that selecting a career from the static catalog opens a readable detail page for that career.",
+    "category": "Static Careers Content",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /careers"
+      },
+      {
+        "type": "action",
+        "description": "Click the link for a different career card"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the career detail page is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify career-specific details are displayed"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC032",
+    "title": "View an exam detail page from the exams catalog",
+    "description": "This verifies that selecting an exam from the static catalog opens a readable detail page for that exam.",
+    "category": "Static Exams Content",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /exams"
+      },
+      {
+        "type": "action",
+        "description": "Click the link for a different exam card"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the exam detail page is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify exam-specific details are displayed"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC033",
+    "title": "Show an empty state when no colleges match",
+    "description": "A guest sees an empty state when search and filters produce no matching college results.",
+    "category": "Colleges Discovery",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /colleges"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the college search field with a unique non-matching term"
+      },
+      {
+        "type": "action",
+        "description": "Select restrictive filters that keep the result set empty"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an empty state message is displayed"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC034",
+    "title": "Browse exam listings and open an exam detail page",
+    "description": "A guest can browse static exam content and open an exam detail page.",
+    "category": "Exams and Careers",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /exams"
+      },
+      {
+        "type": "action",
+        "description": "Open an exam from the list"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the exam detail page is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify exam detail content is displayed"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC035",
+    "title": "Show an empty state when no college results match",
+    "description": "A user who enters a restrictive search or filter can see that no college results are available.",
+    "category": "Browse Colleges",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /colleges"
+      },
+      {
+        "type": "action",
+        "description": "Type a unique unmatched search term into the search field"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an empty state message is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify no college results are displayed"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC036",
+    "title": "Open a second exam detail page from the catalog",
+    "description": "This verifies that users can move between the exams listing and different exam detail pages without leaving the static content flow.",
+    "category": "Static Exams Content",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /exams"
+      },
+      {
+        "type": "action",
+        "description": "Click the link for an exam card"
+      },
+      {
+        "type": "action",
+        "description": "Return to the exams listing"
+      },
+      {
+        "type": "action",
+        "description": "Click the link for another exam card"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the exam detail page is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify exam-specific content is displayed"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC037",
+    "title": "Browse career paths and open a career detail page",
+    "description": "A guest can browse static career content and open a career detail page.",
+    "category": "Exams and Careers",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /careers"
+      },
+      {
+        "type": "action",
+        "description": "Open a career path from the list"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the career detail page is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify career detail content is displayed"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC038",
+    "title": "Navigate from support content back to discovery",
+    "description": "A guest can move from supporting content to college discovery content through linked navigation.",
+    "category": "Exams and Careers",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /exams"
+      },
+      {
+        "type": "action",
+        "description": "Open an exam from the list"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to the related college discovery content"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the colleges discovery page is displayed"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC039",
+    "title": "See an error for invalid sign-in credentials",
+    "description": "A user entering invalid credentials sees an authentication error in the modal.",
+    "category": "User Authentication",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Open the sign-in flow from the header"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with invalid@example.com"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with invalid password"
+      },
+      {
+        "type": "action",
+        "description": "Submit the sign-in form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an authentication error message is displayed"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC040",
+    "title": "Show an empty state for an empty saved list",
+    "description": "A signed-in user with no saved colleges sees an empty state on the shortlist page.",
+    "category": "Saved Colleges",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the sign-in form"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /saved"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an empty state message is displayed"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC041",
+    "title": "Browse exam details from the exams listing",
+    "description": "A user can open an exam from the exams listing and view the static exam detail content.",
+    "category": "Browse Exams",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /exams"
+      },
+      {
+        "type": "action",
+        "description": "Open an exam item"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the exam detail page is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify exam detail content is displayed"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC042",
+    "title": "Browse career details from the careers listing",
+    "description": "A user can open a career from the careers listing and view the static career detail content.",
+    "category": "Browse Careers",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /careers"
+      },
+      {
+        "type": "action",
+        "description": "Open a career item"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the career detail page is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify career detail content is displayed"
+      }
+    ],
+    "priority": "Low"
+  }
+]
